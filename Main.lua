@@ -1,14 +1,21 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/lime"))()
 local w = Library:Window("Mega Hub")
 
-local doorsBackup
+local deletedDoors = {}
 
 w:Toggle("Delete Doors", function(v)
-    if v and workspace:FindFirstChild("Doors") then
-        doorsBackup = workspace.Doors:Clone()
-        workspace.Doors:Destroy()
-    elseif doorsBackup then
-        doorsBackup.Parent = workspace
-        doorsBackup = nil
+    if v then
+        for _, doors in pairs(workspace:GetChildren()) do
+            if doors:IsA("Folder") and doors.Name == "Doors" then
+                table.insert(deletedDoors, doors)
+                doors.Parent = nil
+            end
+        end
+    else
+        for _, doors in pairs(deletedDoors) do
+            if doors and not workspace:FindFirstChild(doors.Name) then
+                doors.Parent = workspace
+            end
+        end
     end
 end)
