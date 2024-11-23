@@ -1,6 +1,6 @@
-- 지원하는 게임
-
-  - Prison Life
+현재 지원되는 게임
+-
+Prison Life
 
 
 
