@@ -7,7 +7,7 @@
 
 
 
-
+무료버전
 ![image](https://github.com/user-attachments/assets/bd51fed5-aabf-4edd-a34d-f26e5663f852)
 
 
